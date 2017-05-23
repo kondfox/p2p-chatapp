@@ -2,17 +2,17 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>P2P Chat App</title>
+    <title>P2P Chat App - Enter</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
     <div class="container">
-        <h1>Peer to Peer Chat program</h1>
+        <h1>Enter</h1>
         <div class="alert alert-danger" th:if="${formError!=null}" th:text="${formError.error}"></div>
-        <form th:object="${chatUser}" th:action="@{/}" method="post">
-            <label for="username">Your username: </label>
-            <input type="text" id="username" th:field="*{username}" th:value="*{username}" />
-            <button type="submit" class="btn btn-primary">Update</button>
+        <form th:object="${chatUser}" th:action="@{/enter}" method="post">
+            <label for="username">Choose your name: </label>
+            <input type="text" id="username" th:field="*{username}" />
+            <button type="submit" class="btn btn-primary">Enter</button>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
