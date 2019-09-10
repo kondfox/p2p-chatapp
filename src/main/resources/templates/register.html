@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Register</title>
+</head>
+<body>
+    <h1>Enter</h1>
+    <form action="/register" method="post">
+        <label for="username">Choose your name:</label>
+        <input type="text" name="username" id="username" />
+        <input type="submit" value="Enter" />
+    </form>
+    <div th:if="${error}" th:text="${error}" style="color: red"></div>
+</body>
+</html>

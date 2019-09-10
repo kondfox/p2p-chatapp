@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>P2P Chat App</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Peer to peer chat app</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Peer to Peer Chat program</h1>
-        <div class="alert alert-danger" th:if="${formError!=null}" th:text="${formError.error}"></div>
-        <form th:object="${chatUser}" th:action="@{/}" method="post">
-            <label for="username">Your username: </label>
-            <input type="text" id="username" th:field="*{username}" th:value="*{username}" />
-            <button type="submit" class="btn btn-primary">Update</button>
+    <h1>Peer to Peer Chat program</h1>
+    <form action="/change-name" method="post">
+        <label for="username">Your username:</label>
+        <input type="text" name="username" id="username" th:value="${user.name}" />
+        <input type="submit" value="Update" />
+    </form>
+    <div th:if="${error}" th:text="${error}" style="color: red"></div>
+    <div th:if="${messages}">
+        <ul>
+            <li th:each="message : ${messages}" th:object="${message}">
+                <span th:text="*{username}"></span>
+                <div th:text="*{text}"></div>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <form action="/messages/send" method="post">
+            <textarea name="message"></textarea>
+            <input type="submit" value="Send" />
         </form>
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <div>
+        <a href="/">Refresh</a>
+    </div>
 </body>
 </html>
