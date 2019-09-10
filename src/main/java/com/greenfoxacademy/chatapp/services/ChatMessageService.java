@@ -10,5 +10,7 @@ public interface ChatMessageService {
     List<ChatMessage> listMessages();
     void send(String message);
     void send(MessageDTO message);
+    void setForwardUrl(String forwardUrl);
+    String getForwardUrl();
 
 }

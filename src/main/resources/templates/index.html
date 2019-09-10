@@ -11,6 +11,11 @@
         <input type="text" name="username" id="username" th:value="${user.name}" />
         <input type="submit" value="Update" />
     </form>
+    <form action="/messages/forward-url" method="post">
+        <label for="forward-url">Set forward URL:</label>
+        <input type="text" name="forward-url" id="forward-url" th:value="${forwardUrl} ? ${forwardUrl} : ''" />
+        <input type="submit" value="Set" />
+    </form>
     <div th:if="${error}" th:text="${error}" style="color: red"></div>
     <div th:if="${messages}">
         <ul>

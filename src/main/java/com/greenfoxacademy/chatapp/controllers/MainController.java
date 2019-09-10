@@ -32,6 +32,7 @@ public class MainController {
         } else {
             model.addAttribute("user", user);
             model.addAttribute("messages", messageService.listMessages());
+            model.addAttribute("forwardUrl", messageService.getForwardUrl());
             return "index";
         }
     }

@@ -10,6 +10,7 @@ public class LogServiceImpl implements LogService {
 
     @Override
     public void log(HttpServletRequest request) {
+        if (System.getenv("CHAT_APP_LOGLEVEL").equals("ERROR")) return;
         System.out.printf(
                 "%s INFO Request %s %s %s \n",
                 LocalDateTime.now().toString(),

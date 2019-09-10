@@ -24,4 +24,10 @@ public class ChatMessageController {
         return "redirect:/";
     }
 
+    @PostMapping("/forward-url")
+    public String setForwardUrl(@RequestParam(value = "forward-url") String forwardUrl) {
+        messageService.setForwardUrl(forwardUrl);
+        return "redirect:/";
+    }
+
 }
