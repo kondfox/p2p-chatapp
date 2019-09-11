@@ -45,6 +45,8 @@ public class MainController {
             userService.changeName(username);
         }
         model.addAttribute("user", userService.getUser());
+        model.addAttribute("messages", messageService.listMessages());
+        model.addAttribute("forwardUrl", messageService.getForwardUrl());
         return "index";
     }
 
