@@ -35,7 +35,7 @@ public class ChatMessageServiceImpl implements ChatMessageService {
                 .baseUrl(forwardUrl)
                 .addConverterFactory(JacksonConverterFactory.create())
                 .build();
-        forwardService = retrofit.create(ForwardService.class);
+        this.forwardService = retrofit.create(ForwardService.class);
     }
 
     @Override

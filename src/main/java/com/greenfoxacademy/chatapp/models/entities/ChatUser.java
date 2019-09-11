@@ -36,4 +36,5 @@ public class ChatUser {
     public void setName(String name) {
         this.name = name;
     }
+
 }
