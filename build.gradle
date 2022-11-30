@@ -14,6 +14,15 @@ configurations {
     }
 }
 
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.collect { it.getName() }.join(' '),
+                'Main-Class': 'com.greenfoxacademy.ChatappApplication'
+        )
+    }
+}
+
 repositories {
     mavenCentral()
 }
