@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/")
 public class MainController {
 
     private UserService userService;
@@ -24,7 +23,7 @@ public class MainController {
         this.messageService = messageService;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public String renderIndexPage(Model model) {
         ChatUser user = userService.getUser();
         if (user == null) {
@@ -37,7 +36,7 @@ public class MainController {
         }
     }
 
-    @PostMapping
+    @PostMapping("/")
     public String changeUsername(@RequestParam String username, Model model) {
         if (username.isEmpty()) {
             model.addAttribute("error", "The username field is empty");

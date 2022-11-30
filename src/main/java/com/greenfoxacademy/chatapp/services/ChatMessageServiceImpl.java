@@ -18,13 +18,14 @@ public class ChatMessageServiceImpl implements ChatMessageService {
     private ChatMessageRepository chatMessageRepository;
     private UserService userService;
     private ForwardService forwardService;
+    private WSService wsService;
     private LogService logService;
     private String forwardUrl;
 
-    @Autowired
-    public ChatMessageServiceImpl(ChatMessageRepository chatMessageRepository, UserService userService, LogService logService) {
+    public ChatMessageServiceImpl(ChatMessageRepository chatMessageRepository, UserService userService, WSService wsService, LogService logService) {
         this.chatMessageRepository = chatMessageRepository;
         this.userService = userService;
+        this.wsService = wsService;
         this.logService = logService;
     }
 
@@ -61,6 +62,7 @@ public class ChatMessageServiceImpl implements ChatMessageService {
         if (!message.getClient().getId().equals(System.getenv("CHAT_APP_UNIQUE_ID"))) {
             chatMessageRepository.save(message.getMessage());
             forward(message);
+            wsService.broadCastNewMessage(message.getMessage());
         }
     }
 

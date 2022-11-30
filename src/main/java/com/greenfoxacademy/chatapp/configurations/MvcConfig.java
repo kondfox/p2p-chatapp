@@ -7,9 +7,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-@EnableWebMvc
+//@EnableWebMvc
 @Configuration
-@ComponentScan("com.greenfoxacademy.chatapp.controllers")
+//@ComponentScan("com.greenfoxacademy.chatapp.controllers")
 public class MvcConfig implements WebMvcConfigurer {
 
     public MvcConfig() {

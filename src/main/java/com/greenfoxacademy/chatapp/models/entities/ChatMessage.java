@@ -60,4 +60,13 @@ public class ChatMessage {
         this.timestamp = timestamp;
     }
 
+    @Override
+    public String toString() {
+        return "ChatMessage{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", text='" + text + '\'' +
+                ", timestamp=" + timestamp +
+                '}';
+    }
 }

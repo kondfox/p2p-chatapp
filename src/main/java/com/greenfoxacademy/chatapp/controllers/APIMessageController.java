@@ -6,6 +6,8 @@ import com.greenfoxacademy.chatapp.models.dtos.StatusMessageOK;
 import com.greenfoxacademy.chatapp.services.ChatMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
