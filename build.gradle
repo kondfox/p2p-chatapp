@@ -18,7 +18,7 @@ jar {
     manifest {
         attributes(
                 'Class-Path': configurations.collect { it.getName() }.join(' '),
-                'Main-Class': 'com.greenfoxacademy.ChatappApplication'
+                'Main-Class': 'com.greenfoxacademy.chatapp.ChatappApplication'
         )
     }
 }
