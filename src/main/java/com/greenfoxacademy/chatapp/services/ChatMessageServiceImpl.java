@@ -59,11 +59,15 @@ public class ChatMessageServiceImpl implements ChatMessageService {
 
     @Override
     public void send(MessageDTO message) {
-        if (!message.getClient().getId().equals(System.getenv("CHAT_APP_UNIQUE_ID"))) {
-            chatMessageRepository.save(message.getMessage());
-            forward(message);
-            wsService.broadCastNewMessage(message.getMessage());
-        }
+        boolean isExistingMessage = !chatMessageRepository
+                .findMessagesWithTimestamp(message.getMessage().getTimestamp())
+                .isEmpty();
+        boolean isMyMessage = message.getClient().getId().equals(System.getenv("CHAT_APP_UNIQUE_ID"));
+        if (isExistingMessage || isMyMessage) return;
+
+        chatMessageRepository.save(message.getMessage());
+        forward(message);
+        wsService.broadCastNewMessage(message.getMessage());
     }
 
     private void forward(MessageDTO message) {
