@@ -1,0 +1,39 @@
+nav form {
+    align-items: center;
+}
+
+nav input {
+    width: 300px;
+}
+
+main {
+    text-align: center;
+}
+
+.inline-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.col-form-label {
+    text-align: right;
+}
+
+.message.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header p {
+    margin: 0;
+}
+
+#messages > .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

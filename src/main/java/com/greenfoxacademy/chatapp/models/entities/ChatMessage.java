@@ -25,7 +25,7 @@ public class ChatMessage {
         this.id = (int) (1000000 + Math.random() * 9000000);
         this.username = username;
         this.text = text;
-        this.timestamp = new Date().getTime() / 1000;
+        this.timestamp = System.currentTimeMillis();
     }
 
     public Integer getId() {

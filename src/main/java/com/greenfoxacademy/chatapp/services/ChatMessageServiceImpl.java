@@ -46,7 +46,7 @@ public class ChatMessageServiceImpl implements ChatMessageService {
 
     @Override
     public List<ChatMessage> listMessages() {
-        return chatMessageRepository.findAll();
+        return chatMessageRepository.findAllOrderedByTimeDesc();
     }
 
     @Override
